@@ -8,7 +8,17 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <div class="topnav" id="myTopnav">
+    <%= link_to "home", questions_path %>
+    <%= link_to "ask a new question!", new_question_path %>
+  </div>
+</br>
+</br>
+</br>
   <body>
+    <h4>
+      <%= flash[:notice] || flash[:errors] %>
+    </h4>
     <%= yield %>
   </body>
 </html>

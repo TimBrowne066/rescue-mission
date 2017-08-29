@@ -1,0 +1,26 @@
+<h1><%= @question.title %></h1>
+<h3><%= @question.text %></h3>
+
+<%= link_to 'Edit this Question', edit_question_path(@question) %>
+
+<%= button_to "Delete this Question", question_path(@question), method: :delete %>
+
+<h3>ANSWERS:</h3>
+<ul>
+  <% @answers.each do |answer| %>
+  <p><%= answer.text %></p>
+  <% end %>
+</ul>
+</br>
+</br>
+
+<h3>ADD YOUR ANSWER:</h3>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "Return to home", questions_path %></p>

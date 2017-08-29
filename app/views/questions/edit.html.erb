@@ -1,0 +1,31 @@
+<%= form_for(@question) do |f| %>
+
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being posted:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="Title">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+</br>
+  <div class="text">
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </div>
+</br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</br>
+<%= button_to "Delete this Question", question_path(@question), method: :delete %>
